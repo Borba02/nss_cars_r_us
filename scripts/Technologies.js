@@ -1,9 +1,18 @@
-import { getTechnology } from "./database";
+import { getTechnology } from "./database.js";
 
-const technology = getTechnology()
+const techs = getTechnology();
 
-export const Technology = () => {
-    return `<h2>Tehcnologies</h2>`
+export const TechnologiesHTML = () => {
+    return `
+        <select id="tech">
+            <option value="0">Select a technology package</option>
+            ${
+                techs.map(
+                    (tech) => {
+                        return `<option value="${tech.id}">${tech.package}</option>`
+                    }
+                ).join("")
+            }
+        </select>
+    `
 }
-
-//*Left off setting up modules-> module exports of technologies and wheels
