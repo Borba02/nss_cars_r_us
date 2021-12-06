@@ -1,8 +1,18 @@
-import { getWheels } from "./database";
+import { getWheels } from "./database.js";
 
 const wheels = getWheels();
 
-export const Wheels = () => {
-    let html = "<ul>"
+export const WheelsHTML = () => {
+    return `
+        <select id="choices--wheels">
+            <option value="0">Select a wheel package</option>
+            ${
+                wheels.map(
+                    (wheel) => {
+                        return `<option value="${wheel.id}">${wheel.style}</option>`
+                    }
+                ).join("")
+            }
+        </select>
+    `
 }
-//*Left off setting up modules-> module exports of technologies and wheels
