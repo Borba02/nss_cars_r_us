@@ -1,9 +1,14 @@
 import { CarsRUs } from "./CarsRUs.js";
 
-const mainContainer = document.querySelector("#container")
+const mainContainer = document.querySelector("#container");
 
 const renderAllHTML = () => {
-    mainContainer.innerHTML = CarsRUs()
-}
+  mainContainer.innerHTML = CarsRUs();
+};
 
-renderAllHTML()
+renderAllHTML();
+
+document.addEventListener("stateChanged", () => {
+  console.log("State of data has changed. Regenerating HTML...");
+  renderAllHTML();
+});
