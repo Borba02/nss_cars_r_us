@@ -1,4 +1,14 @@
-import { getTechnology } from "./database.js";
+import { getTechnology, setTechnology } from "./database.js";
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "tech") {
+            setTechnology(parseInt(event.target.value))
+        }
+    }
+)
+
 
 const techs = getTechnology();
 
